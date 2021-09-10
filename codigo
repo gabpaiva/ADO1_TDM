@@ -18,13 +18,13 @@ const ShowDetalhes = ({display,toogleModal,mensagem}) => (
                 </Pressable>
           </View>
         </View>
-    
+
     </Modal>
-        
+
  )
 
-const Pessoa = ({titulo,id,link}) => {
-    
+const Box = ({titulo,id,link}) => {
+
     const [modal,setModal] = React.useState(false)
 
     function mudaModal(){
@@ -34,9 +34,9 @@ const Pessoa = ({titulo,id,link}) => {
     return(
     <View>
       <ShowDetalhes display={modal} toogleModal={mudaModal} mensagem={'id:' + ' ' + id}/>
-      
+
       <Pressable onPress={mudaModal}>
-        
+
         <Image
           style={styles.imagem}
           source={{
@@ -99,17 +99,17 @@ const DATA = [
 
 export default function App() {
 
-  
+
   function album({item}){
-    
+
     return(
-      <Pessoa titulo={item.title} 
+      <Box titulo={item.title} 
               link={item.thumbnailUrl}
               id={item.id}
       />
     )
   }
-  
+
 
   return (
 
@@ -120,7 +120,7 @@ export default function App() {
         renderItem={album}
         keyExtractor={item => item.id}
       />
-      
+
     </View>
   );
 }
@@ -139,7 +139,7 @@ const styles = StyleSheet.create({
     fontSize: 10,
     fontWeight: 'bold',
     textAlign: 'center',
-    
+
   },
   imagem: {
     marginTop: 100,
